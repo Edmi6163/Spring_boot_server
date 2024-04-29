@@ -25,9 +25,10 @@ public class PlayerController {
 
     @PostMapping("/insertAll")
     public ResponseEntity<String> insertAllPlayers() {
-        playerService.loadPlayersFromCsv(playerService.csvPath);
+        playerService.loadPlayersFromCsv();
         return new ResponseEntity<>("Players inserted successfully", HttpStatus.CREATED);
     }
+
 
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deletePlayer(@PathVariable Long id) {

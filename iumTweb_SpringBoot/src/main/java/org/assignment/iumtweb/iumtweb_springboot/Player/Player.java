@@ -1,15 +1,16 @@
 package org.assignment.iumtweb.iumtweb_springboot.Player;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 
 import java.net.URL;
 import java.util.Date;
-/*(Beta) for now this class nead a @bref*/
+
 @Entity
 @Table(name = "player")
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     @Column(name = "firstname")
     private String firstname;
@@ -34,9 +35,9 @@ public class Player {
 
     @Column(name = "city_of_birth")
     private String city_of_birth;
-
     @Column(name = "date_of_birth")
-    private Date date_of_birth;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private String date_of_birth;
 
     @Column(name = "sub_position")
     private String sub_position;
@@ -48,16 +49,18 @@ public class Player {
     private String foot;
 
     @Column(name = "height_in_cm")
-    private long height_in_cm;
+    private Long height_in_cm;
 
     @Column(name = "contract_expiration_date")
-    private Date contract_expiration_date;
+    //@JsonFormat(pattern = "yyyy-MM-dd")
+
+    private String contract_expiration_date;
 
     @Column(name = "market_value_in_eur")
-    private long market_value_in_eur;
+    private Integer market_value_in_eur;
 
     @Column(name = "highest_market_value_in_eur")
-    private long highest_market_value_in_eur;
+    private Integer highest_market_value_in_eur;
 
     @Column(name = "agent_name")
     private String agent_name;
@@ -78,7 +81,7 @@ public class Player {
  */
 /* sono afk perchè è uscita una problematica , per questo mi hai resettato i nomi delle colonne? */
 
-    public Player(long id, String firstname, String lastname, String name, int last_season, int current_club, String player_code, String country_of_birth, String city_of_birth, Date date_of_birth, String sub_position, String position, String foot, long height_in_cm, long market_value_in_eur, long highest_market_value_in_eur, Date contract_expiration_date, String agent_name, URL image_url, String current_club_domestic_competition_id, String current_club_name) {
+    public Player(Long id, String firstname, String lastname, String name, int last_season, int current_club, String player_code, String country_of_birth, String city_of_birth, String date_of_birth, String sub_position, String position, String foot, Long height_in_cm, Integer market_value_in_eur, Integer highest_market_value_in_eur, String contract_expiration_date, String agent_name, URL image_url, String current_club_domestic_competition_id, String current_club_name) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -176,11 +179,11 @@ public class Player {
         this.city_of_birth = city_of_birth;
     }
 
-    public Date getDate_of_birth() {
+    public String getDate_of_birth() {
         return date_of_birth;
     }
 
-    public void setDate_of_birth(Date date_of_birth) {
+    public void setDate_of_birth(String date_of_birth) {
         this.date_of_birth = date_of_birth;
     }
 
@@ -212,7 +215,7 @@ public class Player {
         return height_in_cm;
     }
 
-    public void setHeight_in_cm(long height_in_cm) {
+    public void setHeight_in_cm(Long height_in_cm) {
         this.height_in_cm = height_in_cm;
     }
 
@@ -220,7 +223,7 @@ public class Player {
         return market_value_in_eur;
     }
 
-    public void setMarket_value_in_eur(long market_value_in_eur) {
+    public void setMarket_value_in_eur(Integer market_value_in_eur) {
         this.market_value_in_eur = market_value_in_eur;
     }
 
@@ -228,15 +231,15 @@ public class Player {
         return highest_market_value_in_eur;
     }
 
-    public void setHighest_market_value_in_eur(long highest_market_value_in_eur) {
+    public void setHighest_market_value_in_eur(Integer highest_market_value_in_eur) {
         this.highest_market_value_in_eur = highest_market_value_in_eur;
     }
 
-    public Date getContract_expiration_date() {
+    public String getContract_expiration_date() {
         return contract_expiration_date;
     }
 
-    public void setContract_expiration_date(Date contract_expiration_date) {
+    public void setContract_expiration_date(String contract_expiration_date) {
         this.contract_expiration_date = contract_expiration_date;
     }
 

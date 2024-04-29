@@ -1,9 +1,12 @@
+
+
+
 package org.assignment.iumtweb.iumtweb_springboot.Player;
 
+import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.opencsv.CSVReader;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -19,16 +22,13 @@ import java.util.Optional;
 @Service
 public class PlayerService {
     private final PlayerRepository playerRepository;
-     String csvPath="/Users/popper/Documents/Uni/Terzo_anno /TWEB/Progettto/Assignment Data 2023-2024/players.csv";
+    private final String csvPath;
 
-
-     public PlayerService(String csv,PlayerRepository playerRepository){
-         this.csvPath=csv;
-         this.playerRepository=playerRepository;
-     }
     @Autowired
     public PlayerService(PlayerRepository playerRepository) {
         this.playerRepository = playerRepository;
+        this.csvPath ="/Users/popper/Documents/Uni/Terzo_anno /TWEB/Progettto/Assignment Data 2023-2024/players.csv";
+
     }
 
     public Player savePlayer(Player player) {
@@ -51,15 +51,15 @@ public class PlayerService {
         return playerRepository.findByName(name);
     }
 
-    public void loadPlayersFromCsv(String csvFilePath) {
-        try (CSVReader reader = new CSVReader(new FileReader(csvFilePath))) {
+    public void loadPlayersFromCsv() {
+        try (CSVReader reader = new CSVReader(new FileReader(csvPath))) {
             String[] nextLine;
             // Skip header if present
             reader.readNext();
             while ((nextLine = reader.readNext()) != null) {
                 Player player = mapToPlayer(nextLine);
                 savePlayer(player);
-            }
+            }{reader.close();}
         } catch (IOException | ParseException | CsvValidationException e) {
             e.printStackTrace();
         }
@@ -75,18 +75,55 @@ public class PlayerService {
         player.setPlayer_code(csvLine[6]);
         player.setCountry_of_birth(csvLine[7]);
         player.setCity_of_birth(csvLine[8]);
-        player.setDate_of_birth(new SimpleDateFormat("yyyy-MM-dd").parse(csvLine[9]));
+        player.setDate_of_birth(csvLine[9]);
         player.setSub_position(csvLine[10]);
         player.setPosition(csvLine[11]);
         player.setFoot(csvLine[12]);
-        player.setHeight_in_cm(Long.parseLong(csvLine[13]));
-        player.setMarket_value_in_eur(Long.parseLong(csvLine[14]));
-        player.setHighest_market_value_in_eur(Long.parseLong(csvLine[15]));
-        player.setContract_expiration_date(new SimpleDateFormat("yyyy-MM-dd").parse(csvLine[16]));
+        player.setHeight_in_cm(parseLongOrNull(csvLine[13]));
+        player.setMarket_value_in_eur(parseIntOrNull(csvLine[14]));
+        player.setHighest_market_value_in_eur(parseIntOrNull(csvLine[15]));
+        player.setContract_expiration_date(csvLine[16]);
         player.setAgent_name(csvLine[17]);
-        player.setImage_url(new URL(csvLine[18]));
+        player.setImage_url(parseUrlOrNull(csvLine[18]));
         player.setCurrent_club_domestic_competition_id(csvLine[19]);
         player.setCurrent_club_name(csvLine[20]);
         return player;
     }
+
+    private Integer parseIntOrNull(String value) {
+        if (value.isEmpty()) {
+            return null;
+        }
+        try {
+            return Integer.parseInt(value);
+        } catch (NumberFormatException e) {
+            return null;
+        }
+    }
+
+    private Long parseLongOrNull(String value) {
+        if (value.isEmpty()) {
+            return null;
+        }
+        try {
+            return Long.parseLong(value);
+        } catch (NumberFormatException e) {
+            return null;
+        }
+    }
+
+    private Date parseDateOrNull(String value) throws ParseException {
+        if (value.isEmpty()) {
+            return null;
+        }
+        return new SimpleDateFormat("yyyy-MM-dd").parse(value);
+    }
+
+    private URL parseUrlOrNull(String value) throws MalformedURLException {
+        if (value.isEmpty()) {
+            return null;
+        }
+        return new URL(value);
+    }
+
 }
