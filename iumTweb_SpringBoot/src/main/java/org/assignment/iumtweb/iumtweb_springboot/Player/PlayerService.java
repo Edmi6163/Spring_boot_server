@@ -14,6 +14,8 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -67,26 +69,36 @@ public class PlayerService {
 
     private Player mapToPlayer(String[] csvLine) throws ParseException, MalformedURLException {
         Player player = new Player();
-        player.setFirstname(csvLine[1]);
-        player.setLastname(csvLine[2]);
+        player.setFirstName(csvLine[1]);
+        player.setLastName(csvLine[2]);
         player.setName(csvLine[3]);
-        player.setLast_season(Integer.parseInt(csvLine[4]));
-        player.setCurrent_club(Integer.parseInt(csvLine[5]));
-        player.setPlayer_code(csvLine[6]);
-        player.setCountry_of_birth(csvLine[7]);
-        player.setCity_of_birth(csvLine[8]);
-        player.setDate_of_birth(csvLine[9]);
-        player.setSub_position(csvLine[10]);
+        player.setLastSeason(Integer.parseInt(csvLine[4]));
+        player.setCurrentClubId(Integer.parseInt(csvLine[5]));
+        player.setPlayerCode(csvLine[6]);
+        player.setCountryOfBirth(csvLine[7]);
+        player.setCityOfBirth(csvLine[8]);
+        try {
+            player.setDateOfBirth(LocalDate.parse(csvLine[9]));
+        } catch (DateTimeParseException e) {
+            // Gestisci il caso in cui la data di nascita non è nel formato corretto
+            // Ad esempio, puoi impostare la data di nascita su null o su una data predefinita
+            player.setDateOfBirth(null); // oppure un'altra gestione dell'errore
+        }
+        player.setSubPosition(csvLine[10]);
         player.setPosition(csvLine[11]);
         player.setFoot(csvLine[12]);
-        player.setHeight_in_cm(parseLongOrNull(csvLine[13]));
-        player.setMarket_value_in_eur(parseIntOrNull(csvLine[14]));
-        player.setHighest_market_value_in_eur(parseIntOrNull(csvLine[15]));
-        player.setContract_expiration_date(csvLine[16]);
-        player.setAgent_name(csvLine[17]);
-        player.setImage_url(parseUrlOrNull(csvLine[18]));
-        player.setCurrent_club_domestic_competition_id(csvLine[19]);
-        player.setCurrent_club_name(csvLine[20]);
+        player.setHeightInCm(parseIntOrNull(csvLine[13]));
+        player.setMarketValueInEur(parseIntOrNull(csvLine[14]));
+        player.setHighestMarketValueInEur(parseIntOrNull(csvLine[15]));
+        try {
+            player.setContractExpirationDate(LocalDate.parse(csvLine[16]));
+        } catch (DateTimeParseException e) {
+            player.setContractExpirationDate(null);
+        }
+        player.setAgentName(csvLine[17]);
+        player.setImageUrl(csvLine[18]);
+        player.setCurrentClubDomesticCompetitionId(csvLine[19]);
+        player.setCurrentClubName(csvLine[20]);
         return player;
     }
 

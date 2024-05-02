@@ -1,134 +1,35 @@
 package org.assignment.iumtweb.iumtweb_springboot.Player;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.*;
 
-import java.net.URL;
-import java.util.Date;
+import jakarta.persistence.*;
+import org.hibernate.annotations.ColumnDefault;
+
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "player")
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name = "player_id", nullable = false)
+    private Integer id;
 
-    @Column(name = "firstname")
-    private String firstname;
+    @Column(name = "first_name")
+    private String firstName;
 
-    @Column(name = "lastname")
-    private String lastname;
-
-    @Column(name = "name")
-    private String name;
-
-    @Column(name = "last_season")
-    private int last_season;
-
-    @Column(name = "current_club")
-    private int current_club;
-
-    @Column(name = "player_code")
-    private String player_code;
-
-    @Column(name = "country_of_birth")
-    private String country_of_birth;
-
-    @Column(name = "city_of_birth")
-    private String city_of_birth;
-    @Column(name = "date_of_birth")
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private String date_of_birth;
-
-    @Column(name = "sub_position")
-    private String sub_position;
-
-    @Column(name = "position")
-    private String position;
-
-    @Column(name = "foot")
-    private String foot;
-
-    @Column(name = "height_in_cm")
-    private Long height_in_cm;
-
-    @Column(name = "contract_expiration_date")
-    //@JsonFormat(pattern = "yyyy-MM-dd")
-
-    private String contract_expiration_date;
-
-    @Column(name = "market_value_in_eur")
-    private Integer market_value_in_eur;
-
-    @Column(name = "highest_market_value_in_eur")
-    private Integer highest_market_value_in_eur;
-
-    @Column(name = "agent_name")
-    private String agent_name;
-
-    @Column(name = "image_url")
-    private URL image_url;
-
-    @Column(name = "current_club_domestic_competition_id")
-    private String current_club_domestic_competition_id;
-
-    @Column(name = "current_club_name")
-    private String current_club_name;
-
-    // Costruttore vuoto
-    public Player() {}
-
-/* io no ho resettato nullah hahah
- */
-/* sono afk perchè è uscita una problematica , per questo mi hai resettato i nomi delle colonne? */
-
-    public Player(Long id, String firstname, String lastname, String name, int last_season, int current_club, String player_code, String country_of_birth, String city_of_birth, String date_of_birth, String sub_position, String position, String foot, Long height_in_cm, Integer market_value_in_eur, Integer highest_market_value_in_eur, String contract_expiration_date, String agent_name, URL image_url, String current_club_domestic_competition_id, String current_club_name) {
-        this.id = id;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.name = name;
-        this.last_season = last_season;
-        this.current_club = current_club;
-        this.player_code = player_code;
-        this.country_of_birth = country_of_birth;
-        this.city_of_birth = city_of_birth;
-        this.date_of_birth = date_of_birth;
-        this.sub_position = sub_position;
-        this.position = position;
-        this.foot = foot;
-        this.height_in_cm = height_in_cm;
-        this.market_value_in_eur = market_value_in_eur;
-        this.highest_market_value_in_eur = highest_market_value_in_eur;
-        this.contract_expiration_date = contract_expiration_date;
-        this.agent_name = agent_name;
-        this.image_url = image_url;
-        this.current_club_domestic_competition_id = current_club_domestic_competition_id;
-        this.current_club_name = current_club_name;
+    public String getFirstName() {
+        return firstName;
     }
 
-
-
-    public long getId() {
-        return id;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getLastName() {
+        return lastName;
     }
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getName() {
@@ -139,60 +40,93 @@ public class Player {
         this.name = name;
     }
 
-    public int getLast_season() {
-        return last_season;
+    public Integer getLastSeason() {
+        return lastSeason;
     }
 
-    public void setLast_season(int last_season) {
-        this.last_season = last_season;
+    public void setLastSeason(Integer lastSeason) {
+        this.lastSeason = lastSeason;
     }
 
-    public int getCurrent_club() {
-        return current_club;
+    public Integer getCurrentClubId() {
+        return currentClubId;
     }
 
-    public void setCurrent_club(int current_club) {
-        this.current_club = current_club;
+    public void setCurrentClubId(Integer currentClubId) {
+        this.currentClubId = currentClubId;
     }
 
-    public String getPlayer_code() {
-        return player_code;
+    public String getPlayerCode() {
+        return playerCode;
     }
 
-    public void setPlayer_code(String player_code) {
-        this.player_code = player_code;
+    public void setPlayerCode(String playerCode) {
+        this.playerCode = playerCode;
     }
 
-    public String getCountry_of_birth() {
-        return country_of_birth;
+    public String getCountryOfBirth() {
+        return countryOfBirth;
     }
 
-    public void setCountry_of_birth(String country_of_birth) {
-        this.country_of_birth = country_of_birth;
+    public void setCountryOfBirth(String countryOfBirth) {
+        this.countryOfBirth = countryOfBirth;
     }
 
-    public String getCity_of_birth() {
-        return city_of_birth;
+    public String getCityOfBirth() {
+        return cityOfBirth;
     }
 
-    public void setCity_of_birth(String city_of_birth) {
-        this.city_of_birth = city_of_birth;
+    public void setCityOfBirth(String cityOfBirth) {
+        this.cityOfBirth = cityOfBirth;
     }
 
-    public String getDate_of_birth() {
-        return date_of_birth;
+    public String getCountryOfCitizenship() {
+        return countryOfCitizenship;
     }
 
-    public void setDate_of_birth(String date_of_birth) {
-        this.date_of_birth = date_of_birth;
+    public Player(String firstName, String lastName, String name, Integer lastSeason, Integer currentClubId, String playerCode, String countryOfBirth, String cityOfBirth, String countryOfCitizenship, LocalDate dateOfBirth, String subPosition, String position, String foot, Integer heightInCm, Integer marketValueInEur, Integer highestMarketValueInEur, LocalDate contractExpirationDate, String agentName, String imageUrl, String url, String currentClubDomesticCompetitionId, String currentClubName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.name = name;
+        this.lastSeason = lastSeason;
+        this.currentClubId = currentClubId;
+        this.playerCode = playerCode;
+        this.countryOfBirth = countryOfBirth;
+        this.cityOfBirth = cityOfBirth;
+        this.countryOfCitizenship = countryOfCitizenship;
+        this.dateOfBirth = dateOfBirth;
+        this.subPosition = subPosition;
+        this.position = position;
+        this.foot = foot;
+        this.heightInCm = heightInCm;
+        this.marketValueInEur = marketValueInEur;
+        this.highestMarketValueInEur = highestMarketValueInEur;
+        this.contractExpirationDate = contractExpirationDate;
+        this.agentName = agentName;
+        this.imageUrl = imageUrl;
+        this.url = url;
+        this.currentClubDomesticCompetitionId = currentClubDomesticCompetitionId;
+        this.currentClubName = currentClubName;
     }
 
-    public String getSub_position() {
-        return sub_position;
+    public void setCountryOfCitizenship(String countryOfCitizenship) {
+        this.countryOfCitizenship = countryOfCitizenship;
     }
 
-    public void setSub_position(String sub_position) {
-        this.sub_position = sub_position;
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public String getSubPosition() {
+        return subPosition;
+    }
+
+    public void setSubPosition(String subPosition) {
+        this.subPosition = subPosition;
     }
 
     public String getPosition() {
@@ -211,69 +145,143 @@ public class Player {
         this.foot = foot;
     }
 
-    public long getHeight_in_cm() {
-        return height_in_cm;
+    public Integer getHeightInCm() {
+        return heightInCm;
     }
 
-    public void setHeight_in_cm(Long height_in_cm) {
-        this.height_in_cm = height_in_cm;
+    public void setHeightInCm(Integer heightInCm) {
+        this.heightInCm = heightInCm;
     }
 
-    public long getMarket_value_in_eur() {
-        return market_value_in_eur;
+    public Integer getMarketValueInEur() {
+        return marketValueInEur;
     }
 
-    public void setMarket_value_in_eur(Integer market_value_in_eur) {
-        this.market_value_in_eur = market_value_in_eur;
+    public void setMarketValueInEur(Integer marketValueInEur) {
+        this.marketValueInEur = marketValueInEur;
     }
 
-    public long getHighest_market_value_in_eur() {
-        return highest_market_value_in_eur;
+    public Integer getHighestMarketValueInEur() {
+        return highestMarketValueInEur;
     }
 
-    public void setHighest_market_value_in_eur(Integer highest_market_value_in_eur) {
-        this.highest_market_value_in_eur = highest_market_value_in_eur;
+    public void setHighestMarketValueInEur(Integer highestMarketValueInEur) {
+        this.highestMarketValueInEur = highestMarketValueInEur;
     }
 
-    public String getContract_expiration_date() {
-        return contract_expiration_date;
+    public LocalDate getContractExpirationDate() {
+        return contractExpirationDate;
     }
 
-    public void setContract_expiration_date(String contract_expiration_date) {
-        this.contract_expiration_date = contract_expiration_date;
+    public void setContractExpirationDate(LocalDate contractExpirationDate) {
+        this.contractExpirationDate = contractExpirationDate;
     }
 
-    public String getAgent_name() {
-        return agent_name;
+    public String getAgentName() {
+        return agentName;
     }
 
-    public void setAgent_name(String agent_name) {
-        this.agent_name = agent_name;
+    public void setAgentName(String agentName) {
+        this.agentName = agentName;
     }
 
-    public URL getImage_url() {
-        return image_url;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImage_url(URL image_url) {
-        this.image_url = image_url;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
-    public String getCurrent_club_domestic_competition_id() {
-        return current_club_domestic_competition_id;
+    public String getUrl() {
+        return url;
     }
 
-    public void setCurrent_club_domestic_competition_id(String current_club_domestic_competition_id) {
-        this.current_club_domestic_competition_id = current_club_domestic_competition_id;
+    public void setUrl(String url) {
+        this.url = url;
     }
 
-    public String getCurrent_club_name() {
-        return current_club_name;
+    public String getCurrentClubDomesticCompetitionId() {
+        return currentClubDomesticCompetitionId;
     }
 
-    public void setCurrent_club_name(String current_club_name) {
-        this.current_club_name = current_club_name;
+    public void setCurrentClubDomesticCompetitionId(String currentClubDomesticCompetitionId) {
+        this.currentClubDomesticCompetitionId = currentClubDomesticCompetitionId;
     }
 
+    public String getCurrentClubName() {
+        return currentClubName;
+    }
 
+    public void setCurrentClubName(String currentClubName) {
+        this.currentClubName = currentClubName;
+    }
+
+    @Column(name = "last_name")
+    private String lastName;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "last_season")
+    private Integer lastSeason;
+
+    @Column(name = "current_club_id")
+    private Integer currentClubId;
+
+    @Column(name = "player_code")
+    private String playerCode;
+
+    @Column(name = "country_of_birth")
+    private String countryOfBirth;
+
+    @Column(name = "city_of_birth")
+    private String cityOfBirth;
+
+    @Column(name = "country_of_citizenship")
+    private String countryOfCitizenship;
+
+    @Column(name = "date_of_birth")
+    private LocalDate dateOfBirth;
+
+    @Column(name = "sub_position")
+    private String subPosition;
+
+    @Column(name = "\"position\"")
+    private String position;
+
+    @Column(name = "foot")
+    private String foot;
+
+    @Column(name = "height_in_cm")
+    private Integer heightInCm;
+
+    @Column(name = "market_value_in_eur")
+    private Integer marketValueInEur;
+
+    @Column(name = "highest_market_value_in_eur")
+    private Integer highestMarketValueInEur;
+
+    @Column(name = "contract_expiration_date")
+    private LocalDate contractExpirationDate;
+
+    @Column(name = "agent_name")
+    private String agentName;
+
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    @Column(name = "url")
+    private String url;
+
+    @Column(name = "current_club_domestic_competition_id")
+    private String currentClubDomesticCompetitionId;
+
+    @Column(name = "current_club_name")
+    private String currentClubName;
+
+    public Player() {
+    }
+
+    // Getters and setters
 }
