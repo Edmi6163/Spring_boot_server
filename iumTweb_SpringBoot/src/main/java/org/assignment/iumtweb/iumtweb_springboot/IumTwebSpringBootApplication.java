@@ -8,7 +8,6 @@ public class IumTwebSpringBootApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(IumTwebSpringBootApplication.class, args);
-		System.out.println("Server started. Connected to the database.");
 	}
 
 }
