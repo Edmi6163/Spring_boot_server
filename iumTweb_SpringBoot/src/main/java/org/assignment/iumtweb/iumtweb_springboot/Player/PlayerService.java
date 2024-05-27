@@ -6,6 +6,7 @@ package org.assignment.iumtweb.iumtweb_springboot.Player;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.io.FileReader;
@@ -29,7 +30,7 @@ public class PlayerService {
     @Autowired
     public PlayerService(PlayerRepository playerRepository) {
         this.playerRepository = playerRepository;
-        this.csvPath ="/Users/popper/Documents/Uni/Terzo_anno /TWEB/Progettto/Assignment Data 2023-2024/players.csv";
+        this.csvPath = "./IUM&TWEB/Eleonora_Francesco_Riccardo/Assignment_Data_2023-2024/players.csv";
 
     }
 
@@ -80,9 +81,7 @@ public class PlayerService {
         try {
             player.setDateOfBirth(LocalDate.parse(csvLine[9]));
         } catch (DateTimeParseException e) {
-            // Gestisci il caso in cui la data di nascita non è nel formato corretto
-            // Ad esempio, puoi impostare la data di nascita su null o su una data predefinita
-            player.setDateOfBirth(null); // oppure un'altra gestione dell'errore
+            player.setDateOfBirth(null);
         }
         player.setSubPosition(csvLine[10]);
         player.setPosition(csvLine[11]);

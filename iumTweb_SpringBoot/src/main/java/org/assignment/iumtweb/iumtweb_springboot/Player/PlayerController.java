@@ -41,7 +41,7 @@ public class PlayerController {
         }
     }
 
-    @GetMapping("/findByName")
+    @PostMapping("/findByName")
     public ResponseEntity<Player> findByName(@RequestParam String name) {
         Optional<Player> player = playerService.findPlayerByName(name);
         return player.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
