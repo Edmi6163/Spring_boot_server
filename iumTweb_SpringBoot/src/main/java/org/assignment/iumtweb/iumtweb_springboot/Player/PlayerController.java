@@ -47,6 +47,7 @@ public class PlayerController {
         return player.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+
     @GetMapping("/load")
     public String loadPLayer() {
         playerService.loadPlayersFromCsv();

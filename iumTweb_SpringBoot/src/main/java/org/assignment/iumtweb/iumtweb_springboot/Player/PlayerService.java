@@ -6,7 +6,6 @@ package org.assignment.iumtweb.iumtweb_springboot.Player;
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 import java.io.FileReader;
@@ -17,7 +16,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -25,12 +23,12 @@ import java.util.Optional;
 @Service
 public class PlayerService {
     private final PlayerRepository playerRepository;
-    private final String csvPath;
+    private final String CSV_FILE_PATH;
 
     @Autowired
     public PlayerService(PlayerRepository playerRepository) {
         this.playerRepository = playerRepository;
-        this.csvPath = "./IUM&TWEB/Eleonora_Francesco_Riccardo/Assignment_Data_2023-2024/players.csv";
+        this.CSV_FILE_PATH = "./IUM&TWEB/Eleonora_Francesco_Riccardo/Assignment_Data_2023-2024/players.csv";
 
     }
 
@@ -55,7 +53,7 @@ public class PlayerService {
     }
 
     public void loadPlayersFromCsv() {
-        try (CSVReader reader = new CSVReader(new FileReader(csvPath))) {
+        try (CSVReader reader = new CSVReader(new FileReader(CSV_FILE_PATH))) {
             String[] nextLine;
             // Skip header if present
             reader.readNext();
