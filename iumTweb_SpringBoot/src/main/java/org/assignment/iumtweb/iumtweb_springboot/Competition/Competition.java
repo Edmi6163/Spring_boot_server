@@ -2,6 +2,7 @@ package org.assignment.iumtweb.iumtweb_springboot.Competition;
 
 import jakarta.persistence.*;
 import jakarta.persistence.Entity;
+
 import java.net.URL;
 
 @Entity
@@ -32,7 +33,10 @@ public class Competition {
         this.confederation = confederation;
         this.url = url;
     }
-    public Competition(){}
+
+    public Competition() {
+    }
+
     public String getId() {
         return id;
     }
@@ -112,7 +116,6 @@ public class Competition {
     public void setUrl(URL url) {
         this.url = url;
     }
-
 
 
 }
