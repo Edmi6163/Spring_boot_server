@@ -1,4 +1,11 @@
 package org.assignment.iumtweb.iumtweb_springboot.Games;
 
-public class GamesRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+public interface GamesRepository extends JpaRepository<Games, Long> {
+    Optional<Games> findByName(String name);
+
 }
