@@ -6,7 +6,7 @@ import java.net.URL;
 import java.util.Date;
 
 @Entity
-@Table
+@Table(name = "games")
 public class Games {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -60,6 +60,10 @@ public class Games {
         this.away_club_name = away_club_name;
         this.aggregate = aggregate;
         this.competition_type = competition_type;
+    }
+
+    public Games() {
+
     }
 
 
