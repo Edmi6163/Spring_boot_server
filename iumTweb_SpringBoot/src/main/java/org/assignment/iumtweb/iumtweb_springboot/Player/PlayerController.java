@@ -46,9 +46,9 @@ public class PlayerController {
         Optional<Player> player = playerService.findPlayerByName(name);
         return player.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+
     @GetMapping("/load")
-    public String loadPLayer()
-    {
+    public String loadPLayer() {
         playerService.loadPlayersFromCsv();
         return "Players inserted successfully";
     }
