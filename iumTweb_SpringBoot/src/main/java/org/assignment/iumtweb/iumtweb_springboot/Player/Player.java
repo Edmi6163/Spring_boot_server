@@ -283,5 +283,4 @@ public class Player {
     public Player() {
     }
 
-    // Getters and setters
 }

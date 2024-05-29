@@ -4,6 +4,7 @@ import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
 import org.assignment.iumtweb.iumtweb_springboot.Player.Player;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -11,6 +12,7 @@ import java.net.MalformedURLException;
 import java.text.ParseException;
 import java.util.*;
 
+@Service
 public class GamesService {
     private final GamesRepository gamesRepository;
     private final  String CSV_FILE_PATH;

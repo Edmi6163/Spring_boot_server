@@ -2,6 +2,7 @@ package org.assignment.iumtweb.iumtweb_springboot.Competition;
 
 import com.opencsv.CSVReader;
 import com.opencsv.exceptions.CsvValidationException;
+import org.springframework.stereotype.Service;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -10,11 +11,12 @@ import java.net.URL;
 import java.text.ParseException;
 import java.util.*;
 
+@Service
 public class CompetitionService {
     private final CompetitionRepository competitionRepository;
     private final String CSV_FILE_PATH;
 
-    public CompetitionService(CompetitionRepository competitionRepository,String CSV_FILE_PATH){
+    public CompetitionService(CompetitionRepository competitionRepository){
         this.competitionRepository = competitionRepository;
         this.CSV_FILE_PATH = "./IUM&TWEB/Eleonora_Francesco_Riccardo/Assignment_Data_2023-2024/competitions.csv";
     }

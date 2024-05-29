@@ -12,12 +12,10 @@ import java.util.Optional;
 @RequestMapping("/Competition")
 public class CompetitionController {
     private final CompetitionService competitionService;
-    private final String CSV_FILE_PATH;
 
     @Autowired
     public CompetitionController(CompetitionService competitionService) {
         this.competitionService = competitionService;
-        this.CSV_FILE_PATH = "./IUM&TWEB/Eleonora_Francesco_Riccardo/Assignment_Data_2023-2024/competitions.csv";
     }
 
     @PostMapping("/insert")
