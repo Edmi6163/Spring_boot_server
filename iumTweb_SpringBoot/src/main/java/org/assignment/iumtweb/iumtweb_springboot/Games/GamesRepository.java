@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 public interface GamesRepository extends JpaRepository<Games, Long> {
-    Optional<Games> findByName(String name);
+    Optional<Games> findByHomeClubName(String homeClubName);
 
 }

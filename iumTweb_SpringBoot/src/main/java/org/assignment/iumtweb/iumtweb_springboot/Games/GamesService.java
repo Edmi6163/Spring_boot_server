@@ -39,8 +39,8 @@ public class GamesService {
         return gamesRepository.findById(id);
     }
 
-    public Optional<Games> findPGamesByName(String homeClubName) {
-        return gamesRepository.findByName(homeClubName);
+    public Optional<Games> findPGamesByHomeClubName(String homeClubName) {
+        return gamesRepository.findByHomeClubName(homeClubName);
     }
 
     public Optional<Games> findPlayerById(Long id) {
