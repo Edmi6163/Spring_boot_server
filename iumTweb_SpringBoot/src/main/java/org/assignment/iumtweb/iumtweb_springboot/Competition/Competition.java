@@ -15,13 +15,13 @@ public class Competition {
     private String name;
     private String sub_type;
     private String type;
-    private int country_id;
+    private Integer country_id;
     private String country_name;
     private String domestic_league_code;
     private String confederation;
     private URL url;
 
-    public Competition(String id, String competition_code, String name, String sub_type, String type, int country_id, String country_name, String domestic_league_code, String confederation, URL url) {
+    public Competition(String id, String competition_code, String name, String sub_type, String type, Integer country_id, String country_name, String domestic_league_code, String confederation, URL url) {
         this.id = id;
         this.competition_code = competition_code;
         this.name = name;

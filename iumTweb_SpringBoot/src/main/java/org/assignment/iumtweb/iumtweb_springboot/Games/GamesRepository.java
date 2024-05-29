@@ -7,5 +7,6 @@ import java.util.Optional;
 
 public interface GamesRepository extends JpaRepository<Games, Long> {
     Optional<Games> findByHomeClubName(String homeClubName);
+    Optional<Games> findByStadium(String stadium);
 
 }

@@ -39,6 +39,10 @@ public class GamesController {
     public ResponseEntity<Games> findByHomeClubName(@RequestParam String name) {
         return gamesService.findPGamesByHomeClubName(name).map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
+    @PostMapping("/findByStadium")
+    public ResponseEntity<Games> findByStadium(@RequestParam String stadium) {
+        return gamesService.findByStadium(stadium).map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
     @GetMapping("/load")
     public String loadGames() {
         gamesService.loadGamesFromCsv();

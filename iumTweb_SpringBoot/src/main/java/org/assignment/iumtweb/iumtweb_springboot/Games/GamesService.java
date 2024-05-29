@@ -43,6 +43,10 @@ public class GamesService {
         return gamesRepository.findByHomeClubName(homeClubName);
     }
 
+    public Optional<Games> findByStadium(String stadium) {
+        return gamesRepository.findByStadium(stadium);
+    }
+
     public Optional<Games> findPlayerById(Long id) {
         return gamesRepository.findById(id);
     }

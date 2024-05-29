@@ -1,7 +1,6 @@
 package org.assignment.iumtweb.iumtweb_springboot.Games;
 
 import jakarta.persistence.*;
-
 import java.net.URL;
 import java.util.Date;
 
@@ -10,24 +9,23 @@ import java.util.Date;
 public class Games {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long gameId;
+    private Long gameId;
     private String competitionId;
-    private int season;
+    private Integer season;
     private String round;
     private Date date;
-    private int homeClubId;
-    private int awayClubId;
-    private int homeClubGoals;
-    private int awayClubGoals;
-    private int homeGoals;
-    private int homeClubPosition;
-    private int awayClubPosition;
+    private Integer homeClubId;
+    private Integer awayClubId;
+    private Integer homeClubGoals;
+    private Integer awayClubGoals;
+    private Integer homeClubPosition;
+    private Integer awayClubPosition;
     private String homeClubManagerName;
     private String awayClubManagerName;
     private String stadium;
-    private int attendance;
+    private Integer attendance;
     private String referee;
-    private URL url;
+    private String url;
     private String homeClubFormation;
     private String awayClubFormation;
     private String homeClubName;
@@ -35,7 +33,7 @@ public class Games {
     private String aggregate;
     private String competitionType;
 
-    public Games(long gameId, String competitionId, int season, String round, Date date, int homeClubId, int awayClubId, int homeClubGoals, int awayClubGoals, int homeGoals, int homeClubPosition, int awayClubPosition, String homeClubManagerName, String awayClubManagerName, String stadium, int attendance, String referee, URL url, String homeClubFormation, String awayClubFormation, String homeClubName, String awayClubName, String aggregate, String competitionType) {
+    public Games(Long gameId, String competitionId, Integer season, String round, Date date, Integer homeClubId, Integer awayClubId, Integer homeClubGoals, Integer awayClubGoals, Integer homeClubPosition, Integer awayClubPosition, String homeClubManagerName, String awayClubManagerName, String stadium, Integer attendance, String referee, String url, String homeClubFormation, String awayClubFormation, String homeClubName, String awayClubName, String aggregate, String competitionType) {
         this.gameId = gameId;
         this.competitionId = competitionId;
         this.season = season;
@@ -45,7 +43,6 @@ public class Games {
         this.awayClubId = awayClubId;
         this.homeClubGoals = homeClubGoals;
         this.awayClubGoals = awayClubGoals;
-        this.homeGoals = homeGoals;
         this.homeClubPosition = homeClubPosition;
         this.awayClubPosition = awayClubPosition;
         this.homeClubManagerName = homeClubManagerName;
@@ -63,8 +60,9 @@ public class Games {
     }
 
     public Games() {
-
     }
+
+    // Getters and setters
 
     public long getGameId() {
         return gameId;
@@ -138,14 +136,6 @@ public class Games {
         this.awayClubGoals = awayClubGoals;
     }
 
-    public int getHomeGoals() {
-        return homeGoals;
-    }
-
-    public void setHomeGoals(int homeGoals) {
-        this.homeGoals = homeGoals;
-    }
-
     public int getHomeClubPosition() {
         return homeClubPosition;
     }
@@ -202,11 +192,11 @@ public class Games {
         this.referee = referee;
     }
 
-    public URL getUrl() {
+    public String getUrl() {
         return url;
     }
 
-    public void setUrl(URL url) {
+    public void setUrl(String url) {
         this.url = url;
     }
 
@@ -258,3 +248,4 @@ public class Games {
         this.competitionType = competitionType;
     }
 }
+
