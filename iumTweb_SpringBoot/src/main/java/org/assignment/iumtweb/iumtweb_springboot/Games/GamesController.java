@@ -35,8 +35,8 @@ public class GamesController {
         return new ResponseEntity<>("Games deleted successfully", HttpStatus.OK);
     }
 
-    @PostMapping("/findByGames")
-    public ResponseEntity<Games> findByGames(@RequestParam String name) {
+    @PostMapping("/findByHomeClubName")
+    public ResponseEntity<Games> findByHomeClubName(@RequestParam String name) {
         return gamesService.findPGamesByHomeClubName(name).map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
     @GetMapping("/load")

@@ -6,10 +6,10 @@ import jakarta.persistence.Entity;
 import java.net.URL;
 
 @Entity
-@Table(name = "Competition")
+@Table(name = "competition")
 public class Competition {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "competition_id", nullable = false)
     private String id;
     private String competition_code;
     private String name;
