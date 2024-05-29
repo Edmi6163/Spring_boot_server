@@ -20,7 +20,7 @@ public class GamesService {
     @Autowired
     public GamesService(GamesRepository gamesRepository) {
         this.gamesRepository = gamesRepository;
-        this.CSV_FILE_PATH = "./IUM&TWEB/Eleonora_Francesco_Riccardo/Assignment_Data_2023-2024/games.csv";
+        this.CSV_FILE_PATH = "./IUM&Thttps/Eleonora_Francesco_Riccardo.gitWEB/Eleonora_Francesco_Riccardo/Assignment_Data_2023-2024/games.csv";
     }
 
     public Games saveGames(Games games) {
@@ -39,8 +39,8 @@ public class GamesService {
         return gamesRepository.findById(id);
     }
 
-    public Optional<Games> findPGamesByName(String name) {
-        return gamesRepository.findByName(name);
+    public Optional<Games> findPGamesByName(String homeClubName) {
+        return gamesRepository.findByName(homeClubName);
     }
 
     public Optional<Games> findPlayerById(Long id) {
@@ -63,13 +63,13 @@ public class GamesService {
 
     private Games mapToGames(String[] csvLive) throws ParseException, MalformedURLException {
         Games games = new Games();
-        games.setGame_id(Long.parseLong(csvLive[0]));
-        games.setCompetition_id(csvLive[1]);
+        games.setGameId(Long.parseLong(csvLive[0]));
+        games.setCompetitionId(csvLive[1]);
         games.setSeason(Integer.parseInt(csvLive[2]));
         games.setRound(csvLive[3]);
         games.setDate(new Date());
-        games.setHome_club_id(Integer.parseInt(csvLive[5]));
-        games.setAway_club_id(Integer.parseInt(csvLive[6]));
+        games.setHomeClubId(Integer.parseInt(csvLive[5]));
+        games.setAwayClubId(Integer.parseInt(csvLive[6]));
 
 return games;
 

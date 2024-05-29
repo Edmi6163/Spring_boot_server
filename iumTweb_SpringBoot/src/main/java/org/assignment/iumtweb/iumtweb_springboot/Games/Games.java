@@ -10,77 +10,76 @@ import java.util.Date;
 public class Games {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long game_id;
-    private String competition_id;
+    private long gameId;
+    private String competitionId;
     private int season;
     private String round;
     private Date date;
-    private int home_club_id;
-    private int away_club_id;
-    private int home_club_goals;
-    private int away_club_goals;
-    private int home_goals;
-    private int home_club_position;
-    private int away_club_position;
-    private String home_club_manager_name;
-    private String away_club_manager_name;
+    private int homeClubId;
+    private int awayClubId;
+    private int homeClubGoals;
+    private int awayClubGoals;
+    private int homeGoals;
+    private int homeClubPosition;
+    private int awayClubPosition;
+    private String homeClubManagerName;
+    private String awayClubManagerName;
     private String stadium;
     private int attendance;
     private String referee;
     private URL url;
-    private String home_club_formation;
-    private String away_club_formation;
-    private String home_club_name;
-    private String away_club_name;
+    private String homeClubFormation;
+    private String awayClubFormation;
+    private String homeClubName;
+    private String awayClubName;
     private String aggregate;
-    private String competition_type;
+    private String competitionType;
 
-    public Games(long game_id, String competition_id, int season, String round, Date date, int home_club_id, int away_club_id, int home_club_goals, int away_club_goals, int home_goals, int home_club_position, int away_club_position, String home_club_manager_name, String away_club_manager_name, String stadium, int attendance, String referee, URL url, String home_club_formation, String away_club_formation, String home_club_name, String away_club_name, String aggregate, String competition_type) {
-        this.game_id = game_id;
-        this.competition_id = competition_id;
+    public Games(long gameId, String competitionId, int season, String round, Date date, int homeClubId, int awayClubId, int homeClubGoals, int awayClubGoals, int homeGoals, int homeClubPosition, int awayClubPosition, String homeClubManagerName, String awayClubManagerName, String stadium, int attendance, String referee, URL url, String homeClubFormation, String awayClubFormation, String homeClubName, String awayClubName, String aggregate, String competitionType) {
+        this.gameId = gameId;
+        this.competitionId = competitionId;
         this.season = season;
         this.round = round;
         this.date = date;
-        this.home_club_id = home_club_id;
-        this.away_club_id = away_club_id;
-        this.home_club_goals = home_club_goals;
-        this.away_club_goals = away_club_goals;
-        this.home_goals = home_goals;
-        this.home_club_position = home_club_position;
-        this.away_club_position = away_club_position;
-        this.home_club_manager_name = home_club_manager_name;
-        this.away_club_manager_name = away_club_manager_name;
+        this.homeClubId = homeClubId;
+        this.awayClubId = awayClubId;
+        this.homeClubGoals = homeClubGoals;
+        this.awayClubGoals = awayClubGoals;
+        this.homeGoals = homeGoals;
+        this.homeClubPosition = homeClubPosition;
+        this.awayClubPosition = awayClubPosition;
+        this.homeClubManagerName = homeClubManagerName;
+        this.awayClubManagerName = awayClubManagerName;
         this.stadium = stadium;
         this.attendance = attendance;
         this.referee = referee;
         this.url = url;
-        this.home_club_formation = home_club_formation;
-        this.away_club_formation = away_club_formation;
-        this.home_club_name = home_club_name;
-        this.away_club_name = away_club_name;
+        this.homeClubFormation = homeClubFormation;
+        this.awayClubFormation = awayClubFormation;
+        this.homeClubName = homeClubName;
+        this.awayClubName = awayClubName;
         this.aggregate = aggregate;
-        this.competition_type = competition_type;
+        this.competitionType = competitionType;
     }
 
     public Games() {
 
     }
 
-
-    public long getGame_id() {
-        return game_id;
+    public long getGameId() {
+        return gameId;
     }
 
-    public void setGame_id(long game_id) {
-        this.game_id = game_id;
+    public void setGameId(long gameId) {
+        this.gameId = gameId;
     }
 
-    public String getCompetition_id() {
-        return competition_id;
+    public String getCompetitionId() {
+        return competitionId;
     }
 
-    public void setCompetition_id(String competition_id) {
-        this.competition_id = competition_id;
+    public void setCompetitionId(String competitionId) {
+        this.competitionId = competitionId;
     }
 
     public int getSeason() {
@@ -107,76 +106,76 @@ public class Games {
         this.date = date;
     }
 
-    public int getHome_club_id() {
-        return home_club_id;
+    public int getHomeClubId() {
+        return homeClubId;
     }
 
-    public void setHome_club_id(int home_club_id) {
-        this.home_club_id = home_club_id;
+    public void setHomeClubId(int homeClubId) {
+        this.homeClubId = homeClubId;
     }
 
-    public int getAway_club_id() {
-        return away_club_id;
+    public int getAwayClubId() {
+        return awayClubId;
     }
 
-    public void setAway_club_id(int away_club_id) {
-        this.away_club_id = away_club_id;
+    public void setAwayClubId(int awayClubId) {
+        this.awayClubId = awayClubId;
     }
 
-    public int getHome_club_goals() {
-        return home_club_goals;
+    public int getHomeClubGoals() {
+        return homeClubGoals;
     }
 
-    public void setHome_club_goals(int home_club_goals) {
-        this.home_club_goals = home_club_goals;
+    public void setHomeClubGoals(int homeClubGoals) {
+        this.homeClubGoals = homeClubGoals;
     }
 
-    public int getAway_club_goals() {
-        return away_club_goals;
+    public int getAwayClubGoals() {
+        return awayClubGoals;
     }
 
-    public void setAway_club_goals(int away_club_goals) {
-        this.away_club_goals = away_club_goals;
+    public void setAwayClubGoals(int awayClubGoals) {
+        this.awayClubGoals = awayClubGoals;
     }
 
-    public int getHome_goals() {
-        return home_goals;
+    public int getHomeGoals() {
+        return homeGoals;
     }
 
-    public void setHome_goals(int home_goals) {
-        this.home_goals = home_goals;
+    public void setHomeGoals(int homeGoals) {
+        this.homeGoals = homeGoals;
     }
 
-    public int getHome_club_position() {
-        return home_club_position;
+    public int getHomeClubPosition() {
+        return homeClubPosition;
     }
 
-    public void setHome_club_position(int home_club_position) {
-        this.home_club_position = home_club_position;
+    public void setHomeClubPosition(int homeClubPosition) {
+        this.homeClubPosition = homeClubPosition;
     }
 
-    public int getAway_club_position() {
-        return away_club_position;
+    public int getAwayClubPosition() {
+        return awayClubPosition;
     }
 
-    public void setAway_club_position(int away_club_position) {
-        this.away_club_position = away_club_position;
+    public void setAwayClubPosition(int awayClubPosition) {
+        this.awayClubPosition = awayClubPosition;
     }
 
-    public String getHome_club_manager_name() {
-        return home_club_manager_name;
+    public String getHomeClubManagerName() {
+        return homeClubManagerName;
     }
 
-    public void setHome_club_manager_name(String home_club_manager_name) {
-        this.home_club_manager_name = home_club_manager_name;
+    public void setHomeClubManagerName(String homeClubManagerName) {
+        this.homeClubManagerName = homeClubManagerName;
     }
 
-    public String getAway_club_manager_name() {
-        return away_club_manager_name;
+    public String getAwayClubManagerName() {
+        return awayClubManagerName;
     }
 
-    public void setAway_club_manager_name(String away_club_manager_name) {
-        this.away_club_manager_name = away_club_manager_name;
+    public void setAwayClubManagerName(String awayClubManagerName) {
+        this.awayClubManagerName = awayClubManagerName;
     }
 
     public String getStadium() {
@@ -211,36 +210,36 @@ public class Games {
         this.url = url;
     }
 
-    public String getHome_club_formation() {
-        return home_club_formation;
+    public String getHomeClubFormation() {
+        return homeClubFormation;
     }
 
-    public void setHome_club_formation(String home_club_formation) {
-        this.home_club_formation = home_club_formation;
+    public void setHomeClubFormation(String homeClubFormation) {
+        this.homeClubFormation = homeClubFormation;
     }
 
-    public String getAway_club_formation() {
-        return away_club_formation;
+    public String getAwayClubFormation() {
+        return awayClubFormation;
     }
 
-    public void setAway_club_formation(String away_club_formation) {
-        this.away_club_formation = away_club_formation;
+    public void setAwayClubFormation(String awayClubFormation) {
+        this.awayClubFormation = awayClubFormation;
     }
 
-    public String getHome_club_name() {
-        return home_club_name;
+    public String getHomeClubName() {
+        return homeClubName;
     }
 
-    public void setHome_club_name(String home_club_name) {
-        this.home_club_name = home_club_name;
+    public void setHomeClubName(String homeClubName) {
+        this.homeClubName = homeClubName;
     }
 
-    public String getAway_club_name() {
-        return away_club_name;
+    public String getAwayClubName() {
+        return awayClubName;
     }
 
-    public void setAway_club_name(String away_club_name) {
-        this.away_club_name = away_club_name;
+    public void setAwayClubName(String awayClubName) {
+        this.awayClubName = awayClubName;
     }
 
     public String getAggregate() {
@@ -251,14 +250,11 @@ public class Games {
         this.aggregate = aggregate;
     }
 
-    public String getCompetition_type() {
-        return competition_type;
+    public String getCompetitionType() {
+        return competitionType;
     }
 
-    public void setCompetition_type(String competition_type) {
-        this.competition_type = competition_type;
+    public void setCompetitionType(String competitionType) {
+        this.competitionType = competitionType;
     }
-
-
-
 }
