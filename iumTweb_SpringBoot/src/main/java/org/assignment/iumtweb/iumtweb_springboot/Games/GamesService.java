@@ -47,8 +47,12 @@ public class GamesService {
         return gamesRepository.findByStadium(stadium);
     }
 
-    public Optional<Games> findPlayerById(Long id) {
-        return gamesRepository.findById(id);
+    public Optional<Games> findByGameId(Long gameId) {
+        return gamesRepository.findByGameId(gameId);
+    }
+
+    public Optional<Games> findByHomeClubManagerName(String homeClubManagerName) {
+        return gamesRepository.findByHomeClubManagerName(homeClubManagerName);
     }
 
     public void loadGamesFromCsv() {
