@@ -66,6 +66,10 @@ public class PlayerService {
         }
     }
 
+    public List<Player> findPlayersByIds(List<Integer> ids) {
+        return playerRepository.findByIdIn(ids);
+    }
+
     private Player mapToPlayer(String[] csvLine) throws ParseException, MalformedURLException {
         Player player = new Player();
         player.setFirstName(csvLine[1]);

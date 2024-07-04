@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -47,6 +48,11 @@ public class PlayerController {
         return player.map(value -> new ResponseEntity<>(value, HttpStatus.OK)).orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
+    @GetMapping("/findByIds")
+        public ResponseEntity<List<Player>> findByIds(@RequestParam List<Integer> ids) {
+            List<Player> players = playerService.findPlayersByIds(ids);
+            return new ResponseEntity<>(players, HttpStatus.OK);
+        }
 
     @GetMapping("/load")
     public String loadPLayer() {
